@@ -223,7 +223,7 @@
                 const result = await response.json();
                 return result.clientToken;
             } catch (error) {
-                console.error('Ошибка при входе клиента:', error.message);
+                console.error('Client login error:', error.message);
                 await new Promise(resolve => setTimeout(resolve, 5000));
                 return loginClient();
             }
@@ -256,8 +256,8 @@
                     return true;
                 }
             } catch (error) {
-                console.error('Ошибка при регистрации события:', error.message);
-                console.error('Тело ответа:', await response.text());
+                console.error('Error while generating code:', error.message);
+                console.error('Response body:', await response.text());
                 await new Promise(resolve => setTimeout(resolve, 5000));
                 return registerEvent(token);
             }
@@ -373,7 +373,7 @@
             await Promise.all(tasks);
 
             startButton.disabled = false;
-            startButton.textContent = 'Начать процесс';
+            startButton.textContent = 'Enter a number first';
         }
     </script>
 </body>
