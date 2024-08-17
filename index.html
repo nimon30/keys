@@ -151,10 +151,8 @@
 
         <button id="startButton" onclick="startProcess()">Start Process</button>
 
-        <a href="https://t.me/HamsterKombatFun_n" class="tg-button" target="_blank">Канал тг создателя</a>
-
-        <a href="https://t.me/+dKXDb8r0NZU2OGIy" class="ref-button" target="_blank">Дешевые рефералы Hamster Kombat, Dogshouse, Musk Emprire, Blum и другие </a>
-
+        <a href="https://t.me/all_hamster_key" class="tg-button" target="_blank">All Hamster Key</a>
+        
         <div class="progress-container">
             <div id="progressBar" class="progress-bar">
                 <div id="progressBarFill" class="progress-bar-fill">0%</div>
@@ -287,8 +285,8 @@
                         return result.promoCode;
                     }
                 } catch (error) {
-                    console.error('Ошибка при создании кода:', error.message);
-                    console.error('Тело ответа:', await response.text());
+                    console.error('Error while generating code:', error.message);
+                    console.error('Response body:', await response.text());
                     await new Promise(resolve => setTimeout(resolve, 1000));
                 }
             } while (!response || !response.promoCode);
@@ -330,7 +328,7 @@
         async function startProcess() {
             const startButton = document.getElementById('startButton');
             startButton.disabled = true;
-            startButton.textContent = 'Пожалуйста, подождите 2 минут...';
+            startButton.textContent = 'Please wait 2 minutes...';
 
             const progressBarFill = document.getElementById('progressBarFill');
             const codeList = document.getElementById('codeList');
