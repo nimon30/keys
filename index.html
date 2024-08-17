@@ -131,9 +131,63 @@
             margin-top: 5px;
             color: #fff;
         }
+
+
+        /* Modal background */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* Button styling */
+        .join-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .join-button:hover {
+            background-color: #45a049;
+        }
+        
     </style>
 </head>
 <body>
+    
+    <!-- Modal Structure -->
+    <div id="popupModal" class="modal">
+        <div class="modal-content">
+            <h2>Thank you for using our website!</h2>
+            <p>Please join our channel below:</p>
+            <a id="joinLink" href="https://example.com" target="_blank" class="join-button">Join Our Channel</a>
+        </div>
+    </div>
+
+    
     <div class="container">
         <h1>Key Gen by <a href="http://t.me/dark1618" target="_blank">Didarul Alam</a></h1>
         <label for="gameSelect">Select Game:</label>
@@ -374,6 +428,28 @@
             startButton.disabled = false;
             startButton.textContent = 'Key generated';
         }
+    </script>
+    <script>
+        // Get the modal and the link
+        var modal = document.getElementById("popupModal");
+        var joinLink = document.getElementById("joinLink");
+
+        // Show the modal 5 seconds after the page loads only if the user hasn't clicked the link before
+        window.onload = function() {
+            if (!localStorage.getItem('linkClicked')) {
+                setTimeout(function() {
+                    modal.style.display = "block";
+                }, 5000); // 5 seconds delay
+            }
+        };
+
+        // Hide the modal 5 seconds after the user clicks the link and set a flag in localStorage
+        joinLink.onclick = function() {
+            localStorage.setItem('linkClicked', 'true');
+            setTimeout(function() {
+                modal.style.display = "none";
+            }, 5000); // 5 seconds after clicking the link
+        };
     </script>
 </body>
   </html>
